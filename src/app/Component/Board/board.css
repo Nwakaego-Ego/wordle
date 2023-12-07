@@ -1,0 +1,12 @@
+.container {
+  margin-top: 50px;
+  width: 100px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+}
+
+.item {
+  background-color: blue;
+  color: white;
+}
