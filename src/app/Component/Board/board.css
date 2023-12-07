@@ -1,12 +1,16 @@
 .container {
   margin-top: 50px;
   width: 100px;
+  height: 300px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 5px;
 }
 
 .item {
-  background-color: blue;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid gray;
 }

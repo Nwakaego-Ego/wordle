@@ -3,7 +3,7 @@ import "./letter.css";
 const Letter = () => {
   return (
     <>
-      <div className="letter-row">Let</div>
+      <div className="letter-row">Letter</div>
     </>
   );
 };
