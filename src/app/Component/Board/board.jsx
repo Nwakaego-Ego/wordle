@@ -1,12 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 // import DefaultBoard from "../DefaultBoard/DefaultBoard";
 import Letter from "../Letter/letter";
 import "./board.css";
 
 const Board = () => {
-  //   const [defaultboard, setDefaultBoard] = useState(DefaultBoard);
-
   const numRows = 6;
   const numColumns = 6;
 
@@ -20,8 +18,8 @@ const Board = () => {
             <Letter
               //   eachrows={row}
               //   sixrows={column}
-              attemptVal={0}
-              letterPosition={0}
+              attemptVal={row}
+              letterPosition={column}
             />
           </span>
         );
