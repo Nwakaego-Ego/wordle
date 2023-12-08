@@ -1,37 +1,127 @@
 "use client";
 import React from "react";
-// import DefaultBoard from "../DefaultBoard/DefaultBoard";
+
 import Letter from "../Letter/letter";
 import "./board.css";
 
 const Board = () => {
-  const numRows = 6;
-  const numColumns = 6;
-
-  const generateGrid = () => {
-    const gridItems = [];
-
-    for (let row = 0; row < numRows; row++) {
-      for (let column = 0; column < numColumns; column++) {
-        gridItems.push(
-          <span key={`${numRows} ${numColumns}`} className="item">
-            <Letter
-              //   eachrows={row}
-              //   sixrows={column}
-              attemptVal={row}
-              letterPosition={column}
-            />
-          </span>
-        );
-      }
-    }
-
-    return gridItems;
-  };
-
   return (
     <>
-      <div className="container">{generateGrid()}</div>
+      <div className="container">
+        <span className="item">
+          <Letter letterPosition={0} attemptVal={0} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={1} attemptVal={0} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={2} attemptVal={0} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={3} attemptVal={0} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={4} attemptVal={0} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={5} attemptVal={0} />
+        </span>
+
+        <span className="item">
+          <Letter letterPosition={0} attemptVal={1} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={1} attemptVal={1} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={2} attemptVal={1} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={3} attemptVal={1} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={4} attemptVal={1} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={5} attemptVal={1} />
+        </span>
+
+        <span className="item">
+          <Letter letterPosition={0} attemptVal={2} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={1} attemptVal={2} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={2} attemptVal={2} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={3} attemptVal={2} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={4} attemptVal={2} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={5} attemptVal={2} />
+        </span>
+
+        <span className="item">
+          <Letter letterPosition={0} attemptVal={3} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={1} attemptVal={3} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={2} attemptVal={3} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={3} attemptVal={3} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={4} attemptVal={3} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={5} attemptVal={3} />
+        </span>
+
+        <span className="item">
+          <Letter letterPosition={0} attemptVal={4} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={1} attemptVal={4} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={2} attemptVal={4} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={3} attemptVal={4} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={4} attemptVal={4} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={5} attemptVal={4} />
+        </span>
+
+        <span className="item">
+          <Letter letterPosition={0} attemptVal={5} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={1} attemptVal={5} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={2} attemptVal={5} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={3} attemptVal={5} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={4} attemptVal={5} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={5} attemptVal={5} />
+        </span>
+      </div>
     </>
   );
 };

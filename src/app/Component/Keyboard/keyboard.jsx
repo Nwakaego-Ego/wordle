@@ -1,6 +1,6 @@
 import React from "react";
 
 const Keyboard = () => {
-  return <div></div>;
+  return <div>Keyboard</div>;
 };
 export default Keyboard;

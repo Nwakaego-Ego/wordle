@@ -1,19 +1,20 @@
 "use client";
-import { useState, createContext } from "react";
+import { useState, useContext } from "react";
 import Board from "../app/Component/Board/board";
-import Keybaord from "../app/Component/Keyboard/keyboard";
-import defaultBoard from "../app/Component/DefaultBoard/DefaultBoard";
+import Keyboard from "../app/Component/Keyboard/keyboard";
+import { defaultboard as DefaultBoard } from "../app/Component/DefaultBoard/DefaultBoard";
+import { createContext } from "react";
 
-export const AlphaContent = createContext();
+export const AppContent = createContext();
 
 export default function Home() {
-  const [board, setBoard] = useState(defaultBoard);
+  const [board, setBoard] = useState(DefaultBoard);
   return (
     <main className="">
-      <AlphaContent.Provider value={{ board, setBoard }}>
+      <AppContent.Provider value={{ board, setBoard }}>
         <Board />
-        <Keybaord />
-      </AlphaContent.Provider>
+        <Keyboard />
+      </AppContent.Provider>
     </main>
   );
 }
