@@ -12,8 +12,10 @@ export default function Home() {
   return (
     <main className="">
       <AppContent.Provider value={{ board, setBoard }}>
-        <Board />
-        <Keyboard />
+        <div className="">
+          <Board />
+          <Keyboard />
+        </div>
       </AppContent.Provider>
     </main>
   );

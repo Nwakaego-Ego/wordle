@@ -1,0 +1,16 @@
+.keyboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.keyboard-main {
+  margin-top: 300px;
+}
+
+.keyboard-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+}

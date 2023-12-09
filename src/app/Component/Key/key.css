@@ -1,8 +1,14 @@
 .keyVal {
-  border: 1px solid red;
+  background-color: #6a686a;
+  color: white;
   width: 25px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 4px;
+}
+
+#big {
+  width: 50px;
 }

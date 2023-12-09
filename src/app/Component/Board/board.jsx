@@ -6,8 +6,8 @@ import "./board.css";
 
 const Board = () => {
   return (
-    <>
-      <div className="container">
+    <div className="container-main">
+      <div className="container-board">
         <span className="item">
           <Letter letterPosition={0} attemptVal={0} />
         </span>
@@ -103,7 +103,7 @@ const Board = () => {
           <Letter letterPosition={5} attemptVal={4} />
         </span>
       </div>
-    </>
+    </div>
   );
 };
 
