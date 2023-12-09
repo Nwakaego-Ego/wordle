@@ -102,25 +102,6 @@ const Board = () => {
         <span className="item">
           <Letter letterPosition={5} attemptVal={4} />
         </span>
-
-        <span className="item">
-          <Letter letterPosition={0} attemptVal={5} />
-        </span>
-        <span className="item">
-          <Letter letterPosition={1} attemptVal={5} />
-        </span>
-        <span className="item">
-          <Letter letterPosition={2} attemptVal={5} />
-        </span>
-        <span className="item">
-          <Letter letterPosition={3} attemptVal={5} />
-        </span>
-        <span className="item">
-          <Letter letterPosition={4} attemptVal={5} />
-        </span>
-        <span className="item">
-          <Letter letterPosition={5} attemptVal={5} />
-        </span>
       </div>
     </>
   );

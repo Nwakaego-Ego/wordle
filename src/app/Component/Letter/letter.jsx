@@ -14,7 +14,7 @@ const Letter = ({ attemptVal, letterPosition }) => {
 
   const letter = board[attemptVal][letterPosition];
   console.log("Letter here", letter);
-  //   console.log("Board from context:", board);
+  //
   console.log("attemptVal:", attemptVal);
   console.log("letterPosition:", letterPosition);
 
