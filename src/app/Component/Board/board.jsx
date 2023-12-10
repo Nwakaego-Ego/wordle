@@ -23,9 +23,9 @@ const Board = () => {
         <span className="item">
           <Letter letterPosition={4} attemptVal={0} />
         </span>
-        <span className="item">
+        {/* <span className="item">
           <Letter letterPosition={5} attemptVal={0} />
-        </span>
+        </span> */}
 
         <span className="item">
           <Letter letterPosition={0} attemptVal={1} />
@@ -42,9 +42,9 @@ const Board = () => {
         <span className="item">
           <Letter letterPosition={4} attemptVal={1} />
         </span>
-        <span className="item">
+        {/* <span className="item">
           <Letter letterPosition={5} attemptVal={1} />
-        </span>
+        </span> */}
 
         <span className="item">
           <Letter letterPosition={0} attemptVal={2} />
@@ -61,9 +61,9 @@ const Board = () => {
         <span className="item">
           <Letter letterPosition={4} attemptVal={2} />
         </span>
-        <span className="item">
+        {/* <span className="item">
           <Letter letterPosition={5} attemptVal={2} />
-        </span>
+        </span> */}
 
         <span className="item">
           <Letter letterPosition={0} attemptVal={3} />
@@ -80,9 +80,9 @@ const Board = () => {
         <span className="item">
           <Letter letterPosition={4} attemptVal={3} />
         </span>
-        <span className="item">
+        {/* <span className="item">
           <Letter letterPosition={5} attemptVal={3} />
-        </span>
+        </span> */}
 
         <span className="item">
           <Letter letterPosition={0} attemptVal={4} />
@@ -99,8 +99,21 @@ const Board = () => {
         <span className="item">
           <Letter letterPosition={4} attemptVal={4} />
         </span>
+
         <span className="item">
-          <Letter letterPosition={5} attemptVal={4} />
+          <Letter letterPosition={0} attemptVal={5} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={1} attemptVal={5} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={2} attemptVal={5} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={3} attemptVal={5} />
+        </span>
+        <span className="item">
+          <Letter letterPosition={4} attemptVal={5} />
         </span>
       </div>
     </div>

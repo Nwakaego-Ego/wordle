@@ -6,9 +6,15 @@ const Key = ({ keyVal, bigKey }) => {
   const { board, setBoard, position, setPosition } = useContext(AppContent);
   const selectLetter = () => {
     const newBoard = [...board];
-    newBoard[position.attempt][position.currPos] = keyVal;
+    console.log(newBoard);
+    newBoard[position.attempt][position.currentPos] = keyVal;
+    // console.log(newBoard);
+    // console.log(position.attempt);
+    // console.log(position.currPos);
     setBoard(newBoard);
-    setPosition(...position, currPos + 1);
+    console.log(newBoard);
+    setPosition({ ...position, currentPos: position.currentPos + 1 });
+    console.log(position);
   };
   return (
     <>

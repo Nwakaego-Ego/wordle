@@ -13,10 +13,6 @@ const Letter = ({ attemptVal, letterPosition }) => {
   }
 
   const letter = board[attemptVal][letterPosition];
-  console.log("Letter here", letter);
-  //
-  console.log("attemptVal:", attemptVal);
-  console.log("letterPosition:", letterPosition);
 
   return <div className="letter-row text-white">{letter}</div>;
 };
