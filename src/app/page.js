@@ -10,9 +10,42 @@ export const AppContent = createContext();
 export default function Home() {
   const [board, setBoard] = useState(DefaultBoard);
   const [position, setPosition] = useState({ attempt: 0, currentPos: 0 });
+
+  const onSelectLetter = (keyVal) => {
+    if (position.currentPos > 4) return;
+    const newBoard = [...board];
+    newBoard[position.attempt][position.currentPos] = keyVal;
+    setBoard(newBoard);
+    setPosition({ ...position, currentPos: position.currentPos + 1 });
+  };
+
+  const onDelete = () => {
+    const newBoard = [...board];
+    newBoard[position.attempt][position.currentPos - 1] = " ";
+    setBoard(newBoard);
+    setPosition({ ...position, currentPos: position.currentPos - 1 });
+  };
+
+  const onEnter = () => {
+    if (position.currentPos !== 5) {
+      return;
+    }
+    setPosition({ attempt: position.attempt + 1, currentPos: 0 });
+  };
+
   return (
     <main className="">
-      <AppContent.Provider value={{ board, setBoard, position, setPosition }}>
+      <AppContent.Provider
+        value={{
+          board,
+          setBoard,
+          position,
+          setPosition,
+          onDelete,
+          onEnter,
+          onSelectLetter,
+        }}
+      >
         <div className="">
           <Board />
           <Keyboard />
