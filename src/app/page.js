@@ -11,6 +11,8 @@ export default function Home() {
   const [board, setBoard] = useState(DefaultBoard);
   const [position, setPosition] = useState({ attempt: 0, currentPos: 0 });
 
+  const correctWord = "RIGHT";
+
   const onSelectLetter = (keyVal) => {
     if (position.currentPos > 4) return;
     const newBoard = [...board];
@@ -44,6 +46,7 @@ export default function Home() {
           onDelete,
           onEnter,
           onSelectLetter,
+          correctWord,
         }}
       >
         <div className="">
