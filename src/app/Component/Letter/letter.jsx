@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AppContent } from "../../page";
 import "./letter.css";
 
 const Letter = ({ attemptVal, letterPosition }) => {
-  const { board, correctWord, position } = useContext(AppContent);
+  const { board, correctWord, position, disabledLetters, setDisabledLetters } =
+    useContext(AppContent);
 
   // Check if board and board[attemptVal] are defined
   if (!board || !board[attemptVal]) {
@@ -15,6 +16,12 @@ const Letter = ({ attemptVal, letterPosition }) => {
   const correct = correctWord[letterPosition] === letter;
 
   const almost = !correct && correctWord.includes(letter);
+
+  useEffect(() => {
+    if (letter !== "" && !correct && !almost) {
+      setDisabledLetters((prev) => [...prev, letter]);
+    }
+  }, [position.attempt]);
 
   // this is a variable
   let letterState = "";

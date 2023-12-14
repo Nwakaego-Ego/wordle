@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { AppContent } from "../../page";
 import "./key.css";
 
-const Key = ({ keyVal, bigKey }) => {
+const Key = ({ keyVal, bigKey, disabled }) => {
   const { onDelete, onSelectLetter, onEnter } = useContext(AppContent);
 
   const selectLetter = () => {
@@ -18,7 +18,11 @@ const Key = ({ keyVal, bigKey }) => {
   return (
     <>
       <div className="key ">
-        <div className="keyVal" id={bigKey && "big"} onClick={selectLetter}>
+        <div
+          className="keyVal"
+          id={bigKey ? "big" : disabled && "disabled"}
+          onClick={selectLetter}
+        >
           {keyVal}
         </div>
       </div>

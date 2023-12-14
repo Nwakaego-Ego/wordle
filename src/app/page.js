@@ -13,15 +13,16 @@ export const AppContent = createContext();
 export default function Home() {
   const [board, setBoard] = useState(DefaultBoard);
   const [position, setPosition] = useState({ attempt: 0, currentPos: 0 });
-  const [wordSet, setWordSet] = useState([]);
+  const [wordSet, setWordSet] = useState(new Set());
+  const [disabledLetters, setDisabaledLetters] = useState([]);
 
   const correctWord = "RIGHT";
 
   useEffect(() => {
-    const generatedWordSet = generateWordSet();
-    setWordSet(generatedWordSet);
+    const words = generateWordSet();
+    setWordSet(words);
 
-    console.log(generatedWordSet);
+    console.log(words);
   }, []);
 
   const onSelectLetter = (keyVal) => {
@@ -51,10 +52,21 @@ export default function Home() {
 
     if (wordSet.has(currWord.toLowerCase())) {
       setPosition({ attempt: position.attempt + 1, currentPos: 0 });
+    } else if (correctWord.toLowerCase() === currWord.toLowerCase()) {
+      // Correct word entered
+      alert("Game Ended");
+      setPosition({ attempt: position.attempt + 1, currentPos: 0 });
     } else {
       alert("Word does not exist");
     }
   };
+
+  //   if (wordSet.has(currWord.toLowerCase())) {
+  //     setPosition({ attempt: position.attempt + 1, currentPos: 0 });
+  //   } else {
+  //     alert("Word does not exist");
+  //   }
+  // };
 
   return (
     <main className="">
@@ -68,6 +80,8 @@ export default function Home() {
           onEnter,
           onSelectLetter,
           correctWord,
+          disabledLetters,
+          setDisabaledLetters,
         }}
       >
         <div className="">
