@@ -8,7 +8,8 @@ const Keyboard = () => {
   const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
   const keys3 = ["Z", "X", "C", "V", "B", "N", "M"];
 
-  const { onSelectLetter, onEnter, onDelete } = useContext(AppContent);
+  const { onSelectLetter, onEnter, onDelete, disabledLetters, disabled } =
+    useContext(AppContent);
 
   const handleKeyboard = useCallback((event) => {
     if (event.key === "Enter" || event.key === "Return") {

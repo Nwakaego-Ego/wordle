@@ -7,6 +7,7 @@ import {
   generateWordSet,
 } from "../app/Component/DefaultBoard/DefaultBoard";
 import { createContext } from "react";
+import GameOver from "./Component/GameOver/gameOver";
 
 export const AppContent = createContext();
 
@@ -14,7 +15,11 @@ export default function Home() {
   const [board, setBoard] = useState(DefaultBoard);
   const [position, setPosition] = useState({ attempt: 0, currentPos: 0 });
   const [wordSet, setWordSet] = useState(new Set());
-  const [disabledLetters, setDisabaledLetters] = useState([]);
+  const [disabledLetters, setDisabledLetters] = useState([]);
+  const [gameOver, setGameOver] = useState({
+    gameOver: false,
+    guessedWord: false,
+  });
 
   const correctWord = "RIGHT";
 
@@ -40,6 +45,32 @@ export default function Home() {
     setPosition({ ...position, currentPos: position.currentPos - 1 });
   };
 
+  // const onEnter = () => {
+  //   if (position.currentPos !== 5) {
+  //     return;
+  //   }
+
+  //   let currWord = "";
+  //   for (let i = 0; i < 5; i++) {
+  //     currWord += board[position.attempt][i];
+  //   }
+
+  //   if (wordSet.has(currWord.toLowerCase())) {
+  //     setPosition({ attempt: position.attempt + 1, currentPos: 0 });
+  //   } else if (correctWord.toLowerCase() === currWord.toLowerCase()) {
+  //     // Correct word entered
+  //     setGameOver({ gameOver: true, guessedWord: true });
+  //     setPosition({ attempt: position.attempt + 1, currentPos: 0 });
+  //     return;
+  //   } else {
+  //     alert("Word does not exist");
+  //   }
+
+  //   if (position.attempt === 5) {
+  //     setGameOver({ gameOver: true, guessedWord: false });
+  //   }
+  // };
+
   const onEnter = () => {
     if (position.currentPos !== 5) {
       return;
@@ -54,19 +85,18 @@ export default function Home() {
       setPosition({ attempt: position.attempt + 1, currentPos: 0 });
     } else if (correctWord.toLowerCase() === currWord.toLowerCase()) {
       // Correct word entered
-      alert("Game Ended");
+      setGameOver({ gameOver: true, guessedWord: true });
       setPosition({ attempt: position.attempt + 1, currentPos: 0 });
+      return;
     } else {
       alert("Word does not exist");
     }
-  };
 
-  //   if (wordSet.has(currWord.toLowerCase())) {
-  //     setPosition({ attempt: position.attempt + 1, currentPos: 0 });
-  //   } else {
-  //     alert("Word does not exist");
-  //   }
-  // };
+    // Check if the game is over
+    if (position.attempt >= 5) {
+      setGameOver({ gameOver: true, guessedWord: false });
+    }
+  };
 
   return (
     <main className="">
@@ -81,12 +111,14 @@ export default function Home() {
           onSelectLetter,
           correctWord,
           disabledLetters,
-          setDisabaledLetters,
+          setDisabledLetters,
+          setGameOver,
+          gameOver,
         }}
       >
         <div className="">
           <Board />
-          <Keyboard />
+          {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>
       </AppContent.Provider>
     </main>
