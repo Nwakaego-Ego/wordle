@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useContext } from "react";
-
 import Letter from "../Letter/letter";
 import "./board.css";
 

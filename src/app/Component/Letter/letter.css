@@ -3,9 +3,18 @@
 }
 
 .error {
-  background-color: red;
+  background-color: #6a686a;
 }
 
 .almost {
-  background-color: #6a686a;
+  background-color: rgb(192, 192, 9);
+}
+
+.letter {
+  display: grid !important;
+  height: 100% !important;
+  width: 100% !important;
+  place-items: center;
+
+  color: white;
 }

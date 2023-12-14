@@ -1,8 +1,11 @@
 "use client";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Board from "../app/Component/Board/board";
 import Keyboard from "../app/Component/Keyboard/keyboard";
-import { defaultboard as DefaultBoard } from "../app/Component/DefaultBoard/DefaultBoard";
+import {
+  defaultboard as DefaultBoard,
+  generateWordSet,
+} from "../app/Component/DefaultBoard/DefaultBoard";
 import { createContext } from "react";
 
 export const AppContent = createContext();
@@ -10,8 +13,16 @@ export const AppContent = createContext();
 export default function Home() {
   const [board, setBoard] = useState(DefaultBoard);
   const [position, setPosition] = useState({ attempt: 0, currentPos: 0 });
+  const [wordSet, setWordSet] = useState([]);
 
   const correctWord = "RIGHT";
+
+  useEffect(() => {
+    const generatedWordSet = generateWordSet();
+    setWordSet(generatedWordSet);
+
+    console.log(generatedWordSet);
+  }, []);
 
   const onSelectLetter = (keyVal) => {
     if (position.currentPos > 4) return;
@@ -32,7 +43,17 @@ export default function Home() {
     if (position.currentPos !== 5) {
       return;
     }
-    setPosition({ attempt: position.attempt + 1, currentPos: 0 });
+
+    let currWord = "";
+    for (let i = 0; i < 5; i++) {
+      currWord += board[position.attempt][i];
+    }
+
+    if (wordSet.has(currWord.toLowerCase())) {
+      setPosition({ attempt: position.attempt + 1, currentPos: 0 });
+    } else {
+      alert("Word does not exist");
+    }
   };
 
   return (

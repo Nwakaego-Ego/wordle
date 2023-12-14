@@ -12,21 +12,18 @@ const Letter = ({ attemptVal, letterPosition }) => {
 
   const letter = board[attemptVal][letterPosition];
 
-  // Check if the current letter is correct
   const correct = correctWord[letterPosition] === letter;
 
-  // Check if the current letter is almost correct
   const almost = !correct && correctWord.includes(letter);
 
-  // Determine the letter state based on conditions
+  // this is a variable
   let letterState = "";
   if (position.attempt > attemptVal) {
     letterState = correct ? "correct" : almost ? "almost" : "error";
   }
 
-  return <div className={`letter-row text-white ${letterState}`}>{letter}</div>;
-
-  // return <div className="letter-row text-white ">{letter}</div>;
+  // embedding it inside the class name
+  return <div className={`letter ${letterState}`}>{letter}</div>;
 };
 
 export default Letter;
