@@ -20,9 +20,9 @@ export default function Home() {
     gameOver: false,
     guessedWord: false,
   });
-  // const [correctWord, setCorrectWord] = useState("");
+  const [correctWord, setCorrectWord] = useState("");
 
-  const correctWord = "RIGHT";
+  // const correctWord = "RIGHT";
 
   // useEffect(() => {
   //   const words = generateWordSet();
@@ -36,7 +36,7 @@ export default function Home() {
   useEffect(() => {
     const { wordSet: words, actualWords } = generateWordSet(); // Destructure the returned object
     setWordSet(words);
-    // setCorrectWord(actualWords);
+    setCorrectWord(actualWords);
 
     console.log(correctWord);
   }, []);
@@ -57,60 +57,29 @@ export default function Home() {
   };
 
   const onEnter = () => {
-    if (position.currentPos !== 5) {
-      return;
-    }
+    if (position.currentPos !== 5) return;
 
     let currWord = "";
     for (let i = 0; i < 5; i++) {
       currWord += board[position.attempt][i];
     }
 
-    console.log("Entered Word:", currWord);
-    console.log("Correct Word:", correctWord);
-
     if (wordSet.has(currWord.toLowerCase())) {
       setPosition({ attempt: position.attempt + 1, currentPos: 0 });
-    } else if (correctWord.toLowerCase() === currWord.toLowerCase()) {
-      // Correct word entered
+    } else {
+      alert("Word not found");
+    }
+
+    if (currWord.toLowerCase() === correctWord.toLowerCase()) {
       setGameOver({ gameOver: true, guessedWord: true });
       return;
-    } else {
-      alert("Word does not exist");
     }
 
-    // Check if the game is over
-    if (position.attempt >= 5) {
+    if (position.attempt === 5) {
       setGameOver({ gameOver: true, guessedWord: false });
+      return;
     }
   };
-
-  // const onEnter = () => {
-  //   if (position.currentPos !== 5) {
-  //     return;
-  //   }
-
-  //   let currWord = "";
-  //   for (let i = 0; i < 5; i++) {
-  //     currWord += board[position.attempt][i];
-  //   }
-
-  //   if (wordSet.has(currWord.toLowerCase())) {
-  //     setPosition({ attempt: position.attempt + 1, currentPos: 0 });
-  //   } else if (correctWord.toLowerCase() === currWord.toLowerCase()) {
-  //     // Correct word entered
-  //     setGameOver({ gameOver: true, guessedWord: true });
-  //     setPosition({ attempt: position.attempt + 1, currentPos: 0 });
-  //     return;
-  //   } else {
-  //     alert("Word does not exist");
-  //   }
-
-  //   // Check if the game is over
-  //   if (position.attempt >= 5) {
-  //     setGameOver({ gameOver: true, guessedWord: false });
-  //   }
-  // };
 
   return (
     <main className="">
