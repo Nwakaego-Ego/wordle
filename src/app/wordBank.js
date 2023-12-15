@@ -1,4 +1,4 @@
-export const wordBank = [
+export const wordSet = [
   "aback",
   "abase",
   "abate",
