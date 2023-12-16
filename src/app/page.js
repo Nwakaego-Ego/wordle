@@ -22,7 +22,7 @@ export default function Home() {
   });
   const [correctWord, setCorrectWord] = useState("");
 
-  // const correctWord = "RIGHT";
+  // const correctWord = ["RIGHT", "PLACE", "BAKER", "ABATE", "READY"];
 
   // useEffect(() => {
   //   const words = generateWordSet();
@@ -71,6 +71,7 @@ export default function Home() {
     }
 
     if (currWord.toLowerCase() === correctWord.toLowerCase()) {
+      // if (currWord === correctWord) {
       setGameOver({ gameOver: true, guessedWord: true });
       return;
     }
